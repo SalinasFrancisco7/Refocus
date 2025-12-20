@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Refocus",
+  "version": "0.1.0",
+  "description": "Reports tab activity to Refocus for focus enforcement.",
+  "permissions": ["tabs", "activeTab", "nativeMessaging"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
