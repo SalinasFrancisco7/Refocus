@@ -5,8 +5,7 @@ desktop_app/build_root_owned/
 native_host/target/
 dist/
 
-# Secrets and keys
-*.pem
+# Secrets and keys (except extension.pem needed for stable extension ID)
 *.p12
 *.key
 
