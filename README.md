@@ -1,5 +1,7 @@
 # Refocus
 
+![Refocus](pic.png)
+
 You open Chrome to check one thing. Two hours later you're deep in YouTube/Twitter/Reddit.
 
 Refocus stops this. Start a work session, and if you drift to a distracting site or app, you get a warning. Ignore it, and a full-screen overlay blocks everything. Enable hard mode, and Chrome closes entirely.
