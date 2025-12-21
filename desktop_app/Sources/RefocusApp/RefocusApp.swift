@@ -31,6 +31,15 @@ struct RefocusApp: App {
         VStack(alignment: .leading, spacing: 8) {
             Text(appState.statusLine)
                 .font(.headline)
+
+            HStack(spacing: 6) {
+                Image(systemName: appState.extensionStatus.symbolName)
+                    .foregroundColor(appState.extensionStatus.swiftUIColor)
+                Text(appState.extensionStatus.description)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+
             Divider()
             Button(appState.sessionButtonTitle) {
                 appState.toggleSession()

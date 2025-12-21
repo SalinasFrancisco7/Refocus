@@ -24,8 +24,11 @@ final class AppState: ObservableObject {
     private let evaluator = RuleEvaluator()
 
     @Published private(set) var recentTabs: [RecentTab] = []
+    @Published private(set) var extensionStatus: ExtensionStatus = .unknown
+    @Published private(set) var activeAppName: String = ""
 
     private var graceDeadline: Date?
+    private var lastExtensionMessage: Date?
     private var violationHost: String?
     private var tickTimer: Timer?
     private var cancellables: Set<AnyCancellable> = []
@@ -171,6 +174,8 @@ final class AppState: ObservableObject {
 
     private func tick() {
         updateStatus()
+        updateExtensionStatus()
+        checkActiveApp()
         let now = Date()
         switch mode {
         case .work:
@@ -202,14 +207,15 @@ final class AppState: ObservableObject {
             statusLine = "Session active"
         case .violationGrace:
             menuTitle = "Grace"
-            statusLine = "Forbidden tab detected"
+            statusLine = "Distraction detected"
         case .violationEnforced:
             menuTitle = "Blocked"
-            statusLine = "Chrome blocked until you comply"
+            statusLine = "Blocked until you comply"
         }
     }
 
     private func handle(tabEvent: TabEvent) {
+        lastExtensionMessage = Date()
         guard tabEvent.type == "TAB_EVENT" else { return }
         guard mode == .work || mode == .violationGrace || mode == .violationEnforced else {
             recordRecentTab(from: tabEvent)
@@ -309,6 +315,127 @@ final class AppState: ObservableObject {
             .store(in: &cancellables)
     }
 
+    private func updateExtensionStatus() {
+        let chromeRunning = NSRunningApplication.runningApplications(withBundleIdentifier: "com.google.Chrome").first != nil
+
+        if !chromeRunning {
+            extensionStatus = .chromeNotRunning
+            return
+        }
+
+        guard let lastMessage = lastExtensionMessage else {
+            extensionStatus = .unknown
+            return
+        }
+
+        let secondsSinceLastMessage = Date().timeIntervalSince(lastMessage)
+        if secondsSinceLastMessage < 30 {
+            extensionStatus = .connected
+        } else {
+            extensionStatus = .notResponding
+        }
+    }
+
+    private func checkActiveApp() {
+        guard mode == .work || mode == .violationGrace || mode == .violationEnforced else { return }
+
+        guard let frontApp = NSWorkspace.shared.frontmostApplication else { return }
+        let appName = frontApp.localizedName ?? "Unknown"
+        activeAppName = appName
+
+        // Check if it's a blocked app (browsers other than Chrome, or entertainment apps)
+        let blockedApps = [
+            // Browsers
+            "Safari", "Firefox", "Arc", "Microsoft Edge", "Brave Browser", "Opera", "Vivaldi",
+            // Gaming
+            "Steam", "Epic Games Launcher", "GOG Galaxy", "Battle.net", "Origin", "EA", "Riot Client", "League of Legends",
+            // Entertainment
+            "Spotify", "Apple Music", "Music", "TV", "Apple TV", "Netflix", "Prime Video", "Disney+", "Plex", "VLC",
+            // Social (non-work)
+            "Discord", "Telegram", "WhatsApp", "Messenger", "Messages",
+            // Other distractions
+            "News", "Stocks", "Photos", "FaceTime"
+        ]
+        if blockedApps.contains(appName) {
+            triggerAppViolation(appName: appName)
+            return
+        }
+
+        // Check window titles for blocked content
+        checkWindowTitles()
+    }
+
+    private func checkWindowTitles() {
+        guard mode == .work else { return }
+
+        let blockedKeywords = settingsStore.settings.blockedDomains.map { domain -> String in
+            // Extract main name from domain (youtube.com -> youtube)
+            domain.replacingOccurrences(of: ".com", with: "")
+                  .replacingOccurrences(of: ".org", with: "")
+                  .replacingOccurrences(of: "www.", with: "")
+        }
+
+        // Get window titles using Accessibility API
+        guard let windowTitles = getWindowTitles() else { return }
+
+        for title in windowTitles {
+            let lowerTitle = title.lowercased()
+            for keyword in blockedKeywords {
+                if lowerTitle.contains(keyword.lowercased()) {
+                    triggerWindowViolation(title: title, keyword: keyword)
+                    return
+                }
+            }
+        }
+    }
+
+    private func getWindowTitles() -> [String]? {
+        let options: CGWindowListOption = [.optionOnScreenOnly, .excludeDesktopElements]
+        guard let windowList = CGWindowListCopyWindowInfo(options, kCGNullWindowID) as? [[String: Any]] else {
+            return nil
+        }
+
+        var titles: [String] = []
+        for window in windowList {
+            if let name = window[kCGWindowName as String] as? String, !name.isEmpty {
+                titles.append(name)
+            }
+        }
+        return titles
+    }
+
+    private func triggerAppViolation(appName: String) {
+        guard mode == .work else { return }
+        violationHost = appName
+        graceDeadline = Date().addingTimeInterval(TimeInterval(settingsStore.settings.graceSeconds))
+        mode = .violationGrace
+        notificationManager.send(
+            title: "Wrong app",
+            body: "\(appName) is not allowed during work.",
+            playSound: settingsStore.settings.playSound
+        )
+        if settingsStore.settings.overlayEnabled {
+            overlayController.show(message: "\(appName) is not allowed during work", countdown: "\(settingsStore.settings.graceSeconds)")
+        }
+        updateStatus()
+    }
+
+    private func triggerWindowViolation(title: String, keyword: String) {
+        guard mode == .work else { return }
+        violationHost = keyword
+        graceDeadline = Date().addingTimeInterval(TimeInterval(settingsStore.settings.graceSeconds))
+        mode = .violationGrace
+        notificationManager.send(
+            title: "Blocked content detected",
+            body: "\(keyword) detected in window title.",
+            playSound: settingsStore.settings.playSound
+        )
+        if settingsStore.settings.overlayEnabled {
+            overlayController.show(message: "\(keyword) is not allowed during work", countdown: "\(settingsStore.settings.graceSeconds)")
+        }
+        updateStatus()
+    }
+
     private func statusSnapshot() -> CLIStatusResponse {
         let currentMode = mode
         let currentMenuTitle = menuTitle
@@ -364,6 +491,49 @@ enum SessionMode {
         case .work: return "work"
         case .violationGrace: return "violation_grace"
         case .violationEnforced: return "violation_enforced"
+        }
+    }
+}
+
+enum ExtensionStatus {
+    case unknown
+    case connected
+    case notResponding
+    case chromeNotRunning
+
+    var description: String {
+        switch self {
+        case .unknown: return "Checking..."
+        case .connected: return "Extension connected"
+        case .notResponding: return "Extension not responding"
+        case .chromeNotRunning: return "Chrome not running"
+        }
+    }
+
+    var symbolName: String {
+        switch self {
+        case .unknown: return "questionmark.circle"
+        case .connected: return "checkmark.circle.fill"
+        case .notResponding: return "exclamationmark.triangle.fill"
+        case .chromeNotRunning: return "minus.circle"
+        }
+    }
+
+    var color: String {
+        switch self {
+        case .unknown: return "gray"
+        case .connected: return "green"
+        case .notResponding: return "red"
+        case .chromeNotRunning: return "gray"
+        }
+    }
+
+    var swiftUIColor: Color {
+        switch self {
+        case .unknown: return .gray
+        case .connected: return .green
+        case .notResponding: return .red
+        case .chromeNotRunning: return .gray
         }
     }
 }
