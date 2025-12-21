@@ -1,0 +1,27 @@
+# Build outputs
+desktop_app/build/
+desktop_app/build-pkg/
+desktop_app/build_root_owned/
+native_host/target/
+dist/
+
+# Secrets and keys
+*.pem
+*.p12
+*.key
+
+# Chrome extension builds
+*.crx
+
+# macOS
+.DS_Store
+*.xcuserstate
+xcuserdata/
+
+# Rust
+Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp

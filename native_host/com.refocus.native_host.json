@@ -1,0 +1,9 @@
+{
+  "name": "com.refocus.native_host",
+  "description": "Refocus native bridge between Chrome and the macOS enforcer",
+  "path": "/Applications/Refocus.app/Contents/Helpers/refocus_native_host",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://ggkajgncinmdnpdpoplgaakbfedgbadm/"
+  ]
+}

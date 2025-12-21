@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F0D7EA02B1D3C8C00C0A1A5 /* RefocusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E902B1D3C4600C0A1A5 /* RefocusApp.swift */; };
+		1F0D7EA12B1D3C8C00C0A1A5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E912B1D3C4600C0A1A5 /* AppState.swift */; };
+		1F0D7EA22B1D3C8C00C0A1A5 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E922B1D3C4600C0A1A5 /* AppSettings.swift */; };
+		1F0D7EA32B1D3C8C00C0A1A5 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E932B1D3C4600C0A1A5 /* SettingsStore.swift */; };
+		1F0D7EA42B1D3C8C00C0A1A5 /* RuleEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E942B1D3C4600C0A1A5 /* RuleEvaluator.swift */; };
+		1F0D7EA52B1D3C8C00C0A1A5 /* UnixSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E952B1D3C4600C0A1A5 /* UnixSocketServer.swift */; };
+		1F0D7EA62B1D3C8C00C0A1A5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E962B1D3C4600C0A1A5 /* NotificationManager.swift */; };
+		1F0D7EA72B1D3C8C00C0A1A5 /* OverlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E972B1D3C4600C0A1A5 /* OverlayController.swift */; };
+		1F0D7EA82B1D3C8C00C0A1A5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E982B1D3C4600C0A1A5 /* OnboardingView.swift */; };
+		1F0D7EA92B1D3C8C00C0A1A5 /* OnboardingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E992B1D3C4600C0A1A5 /* OnboardingWindowController.swift */; };
+		1F0D7EAA2B1D3C8C00C0A1A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E9A2B1D3C4600C0A1A5 /* SettingsView.swift */; };
+		1F0D7EAB2B1D3C8C00C0A1A5 /* SessionMode+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7E9B2B1D3C4600C0A1A5 /* SessionMode+UI.swift */; };
+		1F0D7EAC2B1D3CB200C0A1A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F0D7E9D2B1D3C6E00C0A1A5 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F0D7E8F2B1D3C4600C0A1A5 /* RefocusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefocusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0D7E902B1D3C4600C0A1A5 /* RefocusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefocusApp.swift; sourceTree = "<group>"; };
+		1F0D7E912B1D3C4600C0A1A5 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1F0D7E922B1D3C4600C0A1A5 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		1F0D7E932B1D3C4600C0A1A5 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		1F0D7E942B1D3C4600C0A1A5 /* RuleEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleEvaluator.swift; sourceTree = "<group>"; };
+		1F0D7E952B1D3C4600C0A1A5 /* UnixSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixSocketServer.swift; sourceTree = "<group>"; };
+		1F0D7E962B1D3C4600C0A1A5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		1F0D7E972B1D3C4600C0A1A5 /* OverlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayController.swift; sourceTree = "<group>"; };
+		1F0D7E982B1D3C4600C0A1A5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		1F0D7E992B1D3C4600C0A1A5 /* OnboardingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWindowController.swift; sourceTree = "<group>"; };
+		1F0D7E9A2B1D3C4600C0A1A5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1F0D7E9B2B1D3C4600C0A1A5 /* SessionMode+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionMode+UI.swift"; sourceTree = "<group>"; };
+		1F0D7E9D2B1D3C6E00C0A1A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F0D7E9E2B1D3C6E00C0A1A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F0D7E572B1D3AF000C0A1A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F9E2F502B1E0A8D00DDE7B1 /* Bundle Native Host */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Bundle Native Host";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -euo pipefail\nHOST_PROJECT=\"$PROJECT_DIR/../native_host\"\nif [ \"$CONFIGURATION\" = \"Release\" ]; then\n  BUILD_FLAG=\"--release\"\n  HOST_BINARY=\"$HOST_PROJECT/target/release/refocus_native_host\"\nelse\n  BUILD_FLAG=\"\"\n  HOST_BINARY=\"$HOST_PROJECT/target/debug/refocus_native_host\"\nfi\ncargo build $BUILD_FLAG --manifest-path \"$HOST_PROJECT/Cargo.toml\"\nif [ ! -f \"$HOST_BINARY\" ]; then\n  echo \"Native host binary missing at $HOST_BINARY\" >&2\n  exit 1\nfi\nAPP_CONTENTS=\"$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH\"\nHELPERS_DIR=\"$APP_CONTENTS/Helpers\"\nmkdir -p \"$HELPERS_DIR\"\ncp \"$HOST_BINARY\" \"$HELPERS_DIR/refocus_native_host\"\nchmod +x \"$HELPERS_DIR/refocus_native_host\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F0D7E4C2B1D3A6000C0A1A5 = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E582B1D3B0200C0A1A5 /* Sources */,
+				1F0D7E592B1D3B0200C0A1A5 /* Resources */,
+				1F0D7E512B1D3AAA00C0A1A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F0D7E512B1D3AAA00C0A1A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E8F2B1D3C4600C0A1A5 /* RefocusApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F0D7E582B1D3B0200C0A1A5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E5A2B1D3B1200C0A1A5 /* RefocusApp */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		1F0D7E5A2B1D3B1200C0A1A5 /* RefocusApp */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E5B2B1D3B3B00C0A1A5 /* IPC */,
+				1F0D7E5C2B1D3B3B00C0A1A5 /* Model */,
+				1F0D7E5D2B1D3B3B00C0A1A5 /* Notifications */,
+				1F0D7E5E2B1D3B3B00C0A1A5 /* Onboarding */,
+				1F0D7E5F2B1D3B3B00C0A1A5 /* Overlay */,
+				1F0D7E602B1D3B3B00C0A1A5 /* Settings */,
+				1F0D7E612B1D3B3B00C0A1A5 /* UI */,
+				1F0D7E902B1D3C4600C0A1A5 /* RefocusApp.swift */,
+			);
+			path = RefocusApp;
+			sourceTree = "<group>";
+		};
+		1F0D7E5B2B1D3B3B00C0A1A5 /* IPC */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E952B1D3C4600C0A1A5 /* UnixSocketServer.swift */,
+			);
+			path = IPC;
+			sourceTree = "<group>";
+		};
+		1F0D7E5C2B1D3B3B00C0A1A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E912B1D3C4600C0A1A5 /* AppState.swift */,
+				1F0D7E922B1D3C4600C0A1A5 /* AppSettings.swift */,
+				1F0D7E932B1D3C4600C0A1A5 /* SettingsStore.swift */,
+				1F0D7E942B1D3C4600C0A1A5 /* RuleEvaluator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F0D7E5D2B1D3B3B00C0A1A5 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E962B1D3C4600C0A1A5 /* NotificationManager.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		1F0D7E5E2B1D3B3B00C0A1A5 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E982B1D3C4600C0A1A5 /* OnboardingView.swift */,
+				1F0D7E992B1D3C4600C0A1A5 /* OnboardingWindowController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1F0D7E5F2B1D3B3B00C0A1A5 /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E972B1D3C4600C0A1A5 /* OverlayController.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
+		1F0D7E602B1D3B3B00C0A1A5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E9A2B1D3C4600C0A1A5 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1F0D7E612B1D3B3B00C0A1A5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E9B2B1D3C4600C0A1A5 /* SessionMode+UI.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1F0D7E592B1D3B0200C0A1A5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7E9D2B1D3C6E00C0A1A5 /* Assets.xcassets */,
+				1F0D7E9E2B1D3C6E00C0A1A5 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F0D7E502B1D3A9000C0A1A5 /* RefocusApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F0D7E712B1D3B6100C0A1A5 /* Build configuration list for PBXNativeTarget "RefocusApp" */;
+			buildPhases = (
+				1F0D7E552B1D3AF000C0A1A5 /* Sources */,
+				1F0D7E572B1D3AF000C0A1A5 /* Frameworks */,
+				1F9E2F502B1E0A8D00DDE7B1 /* Bundle Native Host */,
+				1F0D7E562B1D3AF000C0A1A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RefocusApp;
+			productName = RefocusApp;
+			productReference = 1F0D7E8F2B1D3C4600C0A1A5 /* RefocusApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F0D7E4D2B1D3A6000C0A1A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					1F0D7E502B1D3A9000C0A1A5 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 1F0D7E6E2B1D3B1B00C0A1A5 /* Build configuration list for PBXProject "RefocusApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1F0D7E4C2B1D3A6000C0A1A5;
+			productRefGroup = 1F0D7E512B1D3AAA00C0A1A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F0D7E502B1D3A9000C0A1A5 /* RefocusApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F0D7E562B1D3AF000C0A1A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0D7EAC2B1D3CB200C0A1A5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F0D7E552B1D3AF000C0A1A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0D7EA02B1D3C8C00C0A1A5 /* RefocusApp.swift in Sources */,
+				1F0D7EA32B1D3C8C00C0A1A5 /* SettingsStore.swift in Sources */,
+				1F0D7EA42B1D3C8C00C0A1A5 /* RuleEvaluator.swift in Sources */,
+				1F0D7EAA2B1D3C8C00C0A1A5 /* SettingsView.swift in Sources */,
+				1F0D7EA22B1D3C8C00C0A1A5 /* AppSettings.swift in Sources */,
+				1F0D7EA12B1D3C8C00C0A1A5 /* AppState.swift in Sources */,
+				1F0D7EA82B1D3C8C00C0A1A5 /* OnboardingView.swift in Sources */,
+				1F0D7EA52B1D3C8C00C0A1A5 /* UnixSocketServer.swift in Sources */,
+				1F0D7EA62B1D3C8C00C0A1A5 /* NotificationManager.swift in Sources */,
+				1F0D7EA92B1D3C8C00C0A1A5 /* OnboardingWindowController.swift in Sources */,
+				1F0D7EA72B1D3C8C00C0A1A5 /* OverlayController.swift in Sources */,
+				1F0D7EAB2B1D3C8C00C0A1A5 /* SessionMode+UI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1F0D7E6F2B1D3B1B00C0A1A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1F0D7E702B1D3B1B00C0A1A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F0D7E722B1D3B6100C0A1A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.refocus.macos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1F0D7E732B1D3B6100C0A1A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.refocus.macos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F0D7E6E2B1D3B1B00C0A1A5 /* Build configuration list for PBXProject "RefocusApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F0D7E6F2B1D3B1B00C0A1A5 /* Debug */,
+				1F0D7E702B1D3B1B00C0A1A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1F0D7E712B1D3B6100C0A1A5 /* Build configuration list for PBXNativeTarget "RefocusApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F0D7E722B1D3B6100C0A1A5 /* Debug */,
+				1F0D7E732B1D3B6100C0A1A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F0D7E4D2B1D3A6000C0A1A5 /* Project object */;
+}

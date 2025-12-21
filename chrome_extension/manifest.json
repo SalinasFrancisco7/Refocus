@@ -3,9 +3,13 @@
   "name": "Refocus",
   "version": "0.1.0",
   "description": "Reports tab activity to Refocus for focus enforcement.",
-  "permissions": ["tabs", "activeTab", "nativeMessaging"],
+  "permissions": ["tabs", "activeTab", "nativeMessaging", "alarms"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "action": {
+    "default_title": "Refocus"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArkIqovqFBc4ERrGYsV10fSgMcku580O22FF7Tm64sczCflZjjD0VollXa4cmyqSYNVR0eXoifu8X6RoM978jZ0tBMqD737kVcecB9avbkoaXzKXW/6tK1li3b6KO59WMlAx8qW+yAgYRxmWr1EpuBXeSEKB0knf8tBatqXrw7V0cddIcEd+mYeKJc+OqGD+NFFcpmt7KB9JyFB6waLl6rBRkzHyCRjuN3Ia8QXm4AcPgAbdcfK2/bKcn93RQ/9gxn0lu4pg9bLCCIIn2JRD+ty5IahKCyNJEeGcfTYQBzd8OPie8XIvusHNndIcJWuv5iAe+1H46apkc/uDbUrIXVQIDAQAB"
 }

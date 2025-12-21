@@ -1,70 +1,52 @@
 import SwiftUI
+import AppKit
 
 @main
 struct RefocusApp: App {
     @StateObject private var appState = AppState()
 
+    init() {
+        NSApplication.shared.setActivationPolicy(.accessory)
+    }
+
     var body: some Scene {
-        MenuBarExtra(appState.menuTitle) {
-            Button("Start work session") {
-                appState.startWork()
+        MenuBarExtra {
+            menuContent
+        } label: {
+            Label {
+                Text(appState.menuTitle)
+            } icon: {
+                Image(systemName: appState.mode.symbolName)
+                    .foregroundStyle(appState.mode.color)
             }
-            Button("Start break") {
-                appState.startBreak()
-            }
-            Button("Stop session") {
-                appState.stopSession()
+        }
+        .menuBarExtraStyle(.menu)
+
+        Settings {
+            SettingsView(settingsStore: appState.settingsStore)
+        }
+    }
+
+    private var menuContent: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(appState.statusLine)
+                .font(.headline)
+            Divider()
+            Button(appState.sessionButtonTitle) {
+                appState.toggleSession()
             }
             Divider()
-            Toggle("Hard mode", isOn: $appState.hardMode)
+            Toggle("Hard mode", isOn: appState.hardModeBinding)
+            Toggle("Overlay", isOn: appState.overlayBinding)
+            Toggle("Play sound", isOn: appState.playSoundBinding)
+            Toggle("Notifications", isOn: appState.notificationsBinding)
+            Toggle("Launch at login", isOn: appState.launchAtLoginBinding)
             Divider()
             Button("Quit") {
                 NSApplication.shared.terminate(nil)
             }
         }
+        .padding(8)
+        .frame(minWidth: 240)
     }
-}
-
-final class AppState: ObservableObject {
-    @Published var mode: SessionMode = .idle
-    @Published var hardMode: Bool = false
-
-    private let ipcServer = UnixSocketServer()
-
-    var menuTitle: String {
-        switch mode {
-        case .idle: return "Idle"
-        case .work: return "Work"
-        case .break: return "Break"
-        case .violationGrace: return "Grace"
-        case .violationEnforced: return "Blocked"
-        }
-    }
-
-    init() {
-        ipcServer.onEvent = { event in
-            print("Received tab event: \(event)")
-        }
-        ipcServer.start()
-    }
-
-    func startWork() {
-        mode = .work
-    }
-
-    func startBreak() {
-        mode = .break
-    }
-
-    func stopSession() {
-        mode = .idle
-    }
-}
-
-enum SessionMode {
-    case idle
-    case work
-    case break
-    case violationGrace
-    case violationEnforced
 }
